@@ -24,10 +24,10 @@ $packageArgs = @{
 $IsSystem32Bit = Get-ProcessorBits -Compare 32
 if (!$IsSystem32Bit) {
   Write-Host 'Installing 32bit version with 64bit.'
-  $packageArgs.url64bit = $params.url
+  $packageArgs.url64bit = $url
   Install-ChocolateyPackage @packageArgs
   
-  $packageArgs.url64bit = $params.url64bit
+  $packageArgs.url64bit = $url64
   Install-ChocolateyPackage @packageArgs
 }
 else {
